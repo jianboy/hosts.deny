@@ -1,0 +1,25 @@
+name: auto CI
+
+on:
+  schedule:
+  - cron: "0 2 * * 1-5"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Update Deny Host
+        run: |
+          python cmd/refreash.py
+
+      - name: Push to built branch
+        uses: Automattic/action-commit-to-branch@master
+        with:
+          branch: 'master'
+          commit_message: 'Update Host'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
