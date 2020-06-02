@@ -32,6 +32,7 @@ jobs:
 
       - name: Update Deny Host
         run: |
+          pwd
           python cmd/refresh.py
 
       - name: Push to built branch
