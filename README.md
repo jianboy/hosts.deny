@@ -20,5 +20,5 @@
 ## 更新黑名单
 
 ```
-python cmd/refreash.py
+python cmd/refresh.py
 ```
