@@ -24,7 +24,7 @@ resultFile = r'host.deny'
 def getData():
     with open(resultFile, 'w', encoding="utf8") as file:
         resData = requests.get(
-            url, headers=user_agent.getheaders()).content.decode("utf8")
+            url, headers=user_agent.getheaders(), timeout=5).content.decode("utf8")
         file.write(resData)
 
 if __name__ == "__main__":
